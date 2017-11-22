@@ -1,0 +1,34 @@
+{
+  "name": "form-kit",
+  "version": "1.0.0",
+  "main": "./index",
+  "description": "jQuery Web HTML Form Kit, convert JSON to form field easily.",
+  "tags": [
+    "json",
+    "jquery",
+    "form"
+  ],
+  "author": "SJ Chou <sj@toright.com>",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/samejack/form-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samejack/form-kit.git"
+  },
+  "bugs": "https://github.com/samejack/form-kit/issues",
+  "scripts": {
+    "build": "gulp",
+    "watch": "gulp watch"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-shell": "0.6.3",
+    "gulp-util": "3.0.8",
+    "json-loader": "0.5.4",
+    "mkdirp": "0.5.1",
+    "uglify-js": "2.8.22",
+    "webpack": "1.13.1"
+  }
+}
