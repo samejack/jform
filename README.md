@@ -1,16 +1,16 @@
-# Form-Kit jQuery Plugin
-Web HTML Form Kit, convert JSON to form field easily. ([Demo](http://samejack.github.io/form-kit/))
+# jform jQuery Plugin
+Web HTML Form Kit, convert JSON to form field easily. ([Demo](http://samejack.github.io/jform/))
 
 ## How to use
 
 ```javascript
 // get javascript object from form element
-var obj = $('#my-form').FormKit();
+var obj = $('#my-form').jform();
 
 // set object info form element
-$('#my-form').FormKit(obj);
+$('#my-form').jform(obj);
 // or
-$('#my-form').FormKit('{"text":"1234"}');
+$('#my-form').jform('{"text":"1234"}');
 ```
 
 ## License

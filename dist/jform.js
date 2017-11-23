@@ -14,7 +14,7 @@
  *
  * @author  SJ Chou, <sj@toright.com>
  * @version 1.0.0
- * @date    2017-11-22
+ * @date    2017-11-23
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -22,9 +22,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["Form-Kit"] = factory();
+		exports["jfrom"] = factory();
 	else
-		root["Form-Kit"] = factory();
+		root["jfrom"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -72,7 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports) {
 
-	jQuery.fn.FormKit = function (args) {
+	jQuery.fn.jform = function (args) {
 
 	  // return json string
 	  if (typeof(args) === 'undefined') {

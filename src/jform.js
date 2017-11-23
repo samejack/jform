@@ -1,4 +1,4 @@
-jQuery.fn.FormKit = function (args) {
+jQuery.fn.jform = function (args) {
 
   // return json string
   if (typeof(args) === 'undefined') {

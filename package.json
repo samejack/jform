@@ -1,21 +1,21 @@
 {
-  "name": "form-kit",
+  "name": "jform",
   "version": "1.0.0",
-  "main": "./index",
+  "main": "./dist/jform.min.sj",
   "description": "jQuery Web HTML Form Kit, convert JSON to form field easily.",
-  "tags": [
+  "keywords": [
     "json",
     "jquery",
     "form"
   ],
   "author": "SJ Chou <sj@toright.com>",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/samejack/form-kit",
+  "homepage": "https://github.com/samejack/jform",
   "repository": {
     "type": "git",
-    "url": "https://github.com/samejack/form-kit.git"
+    "url": "https://github.com/samejack/jform.git"
   },
-  "bugs": "https://github.com/samejack/form-kit/issues",
+  "bugs": "https://github.com/samejack/jform/issues",
   "scripts": {
     "build": "gulp",
     "watch": "gulp watch"

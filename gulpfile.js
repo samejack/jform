@@ -5,8 +5,8 @@ var mkdirp = require('mkdirp');
 var webpack = require('webpack');
 var uglify = require('uglify-js');
 
-var NAME = 'form-kit';
-var ENTRY = './src/form-kit.js';
+var NAME = 'jform';
+var ENTRY = './src/jform.js';
 var HEADER = './src/header.js';
 var DIST = './dist';
 
@@ -29,7 +29,7 @@ var bannerPlugin = new webpack.BannerPlugin(createBanner(), {
 var compiler = webpack({
   entry: ENTRY,
   output: {
-    library: 'Form-Kit',
+    library: 'jfrom',
     libraryTarget: 'umd',
     path: DIST,
     filename: NAME + '.js'
