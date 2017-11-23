@@ -17,7 +17,7 @@
   <div class="header clearfix">
     <nav>
     </nav>
-    <h3 class="text-muted">FormKit Demo</h3>
+    <h3 class="text-muted">jform Demo</h3>
   </div>
 
   <div class="jumbotron">
@@ -122,13 +122,13 @@
     $(document).ready(function () {
 
       $('#form-to-json').click(function () {
-        var obj = $('#my-form').FormKit();
+        var obj = $('#my-form').jform();
         editor.set(JSON.parse(obj));
       });
 
       $('#json-to-form').click(function () {
         var json = editor.get();
-        $('#my-form').FormKit(json);
+        $('#my-form').jform(json);
       });
 
       // create the editor
