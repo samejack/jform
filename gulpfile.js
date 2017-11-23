@@ -43,6 +43,12 @@ var compiler = webpack({
   cache: true
 });
 
+gulp.task('copy', ['minify'], function() {
+  gulp
+    .src([DIST + '/*'])
+    .pipe(gulp.dest('docs/js'));
+});
+
 // make dist folder structure
 gulp.task('mkdir', function () {
   mkdirp.sync(DIST);
@@ -87,5 +93,7 @@ gulp.task('minify', ['bundle'], function () {
 gulp.task('watch', ['bundle'], function () {
   gulp.watch(['src/**/*'], ['bundle', 'minify']);
 });
+
+gulp.task('docs', ['bundle', 'minify', 'copy']);
 
 gulp.task('default', ['bundle', 'minify']);

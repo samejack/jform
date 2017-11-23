@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+    </nav>
+    <h3 class="text-muted">FormKit Demo</h3>
+  </div>
+
+  <div class="jumbotron">
+    <h1></h1>
+    <p class="lead">Cras risus.</p>
+    <p><a class="btn btn-lg btn-success" href="#" role="button">GitHub</a></p>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-5 col-md-5">
+      <form id="my-form">
+        <div class="form-group">
+          <label>Text Input</label>
+          <input type="text" class="form-control" name="my-text-input" value="string">
+        </div>
+        <div class="form-group">
+          <label>Textarea</label>
+          <textarea class="form-control" name="my-textarea">test...</textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Radio</label><br />
+          <label for="my-radio-a">A</label>
+          <input type="radio" name="my-radio" value="A" id="my-radio-a">
+          <label for="my-radio-b">B</label>
+          <input type="radio" name="my-radio" value="B" id="my-radio-b">
+        </div>
+        <div class="form-group">
+          <label>Check Box</label><br />
+          <label>
+          <input type="checkbox" name="my-checkbox" value="ok" checked> Single
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Check Box (Multiple)</label><br />
+          <label>
+            <input type="checkbox" name="my-checkbox-arr[]" value="A" checked> A
+          </label>
+          <label>
+            <input type="checkbox" name="my-checkbox-arr[]" value="B"> B
+          </label>
+          <label>
+            <input type="checkbox" name="my-checkbox-arr[]" value="C" checked> C
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Select</label>
+          <select class="form-control" name="my-select">
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Select (Multiple)</label>
+          <select class="form-control" name="my-select-arr[]" multiple="multiple" size="6">
+            <option></option>
+            <option>1</option>
+            <option selected>2</option>
+            <option>3</option>
+            <option selected>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="col-lg-2 col-md-2">
+      <div class="row text-center">
+        <button type="submit" class="btn btn-default" id="form-to-json">Form &gt;&gt; Json</button>
+      </div>
+      <div class="row text-center">
+        <button type="submit" class="btn btn-default" id="json-to-form">Form &lt;&lt; Json</button>
+      </div>
+    </div>
+
+    <div class="col-lg-5 col-md-5">
+      <div id="jsoneditor"></div>
+    </div>
+  </div>
+
+</div>
+
+  <script src="js/jsoneditor.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+
+  <script src="js/form-kit.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      $('#form-to-json').click(function () {
+        var obj = $('#my-form').FormKit();
+        editor.set(JSON.parse(obj));
+      });
+
+      $('#json-to-form').click(function () {
+        var json = editor.get();
+        $('#my-form').FormKit(json);
+      });
+
+      // create the editor
+      var container = document.getElementById('jsoneditor');
+      var options = {search: false, history: false};
+      var editor = new JSONEditor(container, options);
+
+    });
+  </script>
+
+</body>
+</html>
