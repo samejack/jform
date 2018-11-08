@@ -48,7 +48,8 @@ jQuery.fn.jform = function (args) {
       return;
     }
     var queryElements = $(parent).find(
-      'input[name="' + name + '"], select[name="' + name + '"], textarea[name="' + name + '"]'
+      'input[name="' + name + '"], select[name="' + name + '"], textarea[name="' + name + '"], ' +
+      'input[name="' + name + '[]"], select[name="' + name + '[]"], textarea[name="' + name + '[]"]'
     );
 
     $.each(queryElements, function (index, element) {
