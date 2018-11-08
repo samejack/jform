@@ -12,8 +12,14 @@ jQuery.fn.jform = function (args) {
           dataSet[this.name] = [];
         }
         dataSet[this.name].push(this.value);
-      } else {
+      } else if (typeof(dataSet[this.name]) === 'undefined') {
         dataSet[this.name] = this.value;
+      } else if (jQuery.isArray(dataSet[this.name])) {
+        dataSet[this.name].push(this.value);
+      } else if (typeof(dataSet[this.name]) === 'string'
+        || typeof(dataSet[this.name]) === 'number'
+      ) {
+        dataSet[this.name] = [dataSet[this.name], this.value];
       }
     });
 
