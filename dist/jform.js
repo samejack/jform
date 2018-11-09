@@ -13,9 +13,11 @@
  * the License.
  *
  * @author  SJ Chou, <sj@toright.com>
- * @version 1.0.0
- * @date    2017-11-23
+ * @version 1.0.1
+ * @date    2018-11-09
+ * @site    https://github.com/samejack/jform
  */
+
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -86,8 +88,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	          dataSet[this.name] = [];
 	        }
 	        dataSet[this.name].push(this.value);
-	      } else {
+	      } else if (typeof(dataSet[this.name]) === 'undefined') {
 	        dataSet[this.name] = this.value;
+	      } else if (jQuery.isArray(dataSet[this.name])) {
+	        dataSet[this.name].push(this.value);
+	      } else if (typeof(dataSet[this.name]) === 'string'
+	        || typeof(dataSet[this.name]) === 'number'
+	      ) {
+	        dataSet[this.name] = [dataSet[this.name], this.value];
 	      }
 	    });
 
@@ -116,7 +124,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return;
 	    }
 	    var queryElements = $(parent).find(
-	      'input[name="' + name + '"], select[name="' + name + '"], textarea[name="' + name + '"]'
+	      'input[name="' + name + '"], select[name="' + name + '"], textarea[name="' + name + '"], ' +
+	      'input[name="' + name + '[]"], select[name="' + name + '[]"], textarea[name="' + name + '[]"]'
 	    );
 
 	    $.each(queryElements, function (index, element) {
