@@ -6,23 +6,42 @@ jQuery.fn.jform = function (args) {
   
 	  // make data set object
 	  $.each($(this).serializeArray(), function () {
-		if (this.name.match(/^.+\[\]$/)) {
-		  // if name end of [] use array logic to process
-		  if (typeof(dataSet[this.name]) !== 'object') {
-			dataSet[this.name] = [];
-		  }
-		  dataSet[this.name].push(this.value);
-		} else if (typeof(dataSet[this.name]) === 'undefined') {
-		  dataSet[this.name] = this.value;
-		} else if (jQuery.isArray(dataSet[this.name])) {
-		  dataSet[this.name].push(this.value);
-		} else if (typeof(dataSet[this.name]) === 'string'
-		  || typeof(dataSet[this.name]) === 'number'
-		) {
-		  dataSet[this.name] = [dataSet[this.name], this.value];
-		}
+	    if (this.name.match(/^.+\[\]$/)) {
+	      // if name end of [] use array logic to process
+	      if (typeof(dataSet[this.name]) !== 'object') {
+	    	dataSet[this.name] = [];
+	      }
+	      dataSet[this.name].push(this.value);
+	    } else if (typeof(dataSet[this.name]) === 'undefined') {
+	      dataSet[this.name] = this.value;
+	    } else if (jQuery.isArray(dataSet[this.name])) {
+	      dataSet[this.name].push(this.value);
+	    } else if (typeof(dataSet[this.name]) === 'string'
+	      || typeof(dataSet[this.name]) === 'number'
+	    ) {
+	      dataSet[this.name] = [dataSet[this.name], this.value];
+            }
 	  });
   
+          // process hidden input
+          $('input[type="hidden"]').each(function (index, element) {
+            if (this.name.match(/^.+\[\]$/)) {
+              // if name end of [] use array logic to process
+              if (typeof(dataSet[this.name]) !== 'object') {
+                dataSet[this.name] = [];
+              }
+              dataSet[this.name].push(this.value);
+            } else if (typeof(dataSet[this.name]) === 'undefined') {
+              dataSet[this.name] = this.value;
+            } else if (jQuery.isArray(dataSet[this.name])) {
+              dataSet[this.name].push(this.value);
+            } else if (typeof(dataSet[this.name]) === 'string'
+              || typeof(dataSet[this.name]) === 'number'
+            ) {
+              dataSet[this.name] = [dataSet[this.name], this.value];
+            }
+          });
+
 	  // native json encode
 	  if (typeof(JSON) === 'object' && typeof(JSON.stringify) === 'function') {
 		return JSON.stringify(dataSet);
