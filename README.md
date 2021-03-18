@@ -32,5 +32,11 @@ $('#my-form').jform(obj);
 $('#my-form').jform('{"text":"1234"}');
 ```
 
+## How to build jform Project
+Install docker library first, and run command as follows
+```
+docker run -ti -v $PWD:/workspace -w /workspace --rm node:12.21.0-buster bash -c 'npm run preinstall && npm install --dev && npm run build'
+```
+
 ## License
 Apache License 2.0

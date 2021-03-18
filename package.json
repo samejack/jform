@@ -17,11 +17,11 @@
   },
   "bugs": "https://github.com/samejack/jform/issues",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "build": "gulp",
     "watch": "gulp watch"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "3.9.1",
     "gulp-shell": "0.6.3",
@@ -30,5 +30,8 @@
     "mkdirp": "0.5.1",
     "uglify-js": "2.8.22",
     "webpack": "1.13.1"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }
