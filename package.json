@@ -23,7 +23,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "gulp": "3.9.1",
+    "gulp": "4.0.2",
     "gulp-shell": "0.6.3",
     "gulp-util": "3.0.8",
     "json-loader": "0.5.4",
