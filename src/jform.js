@@ -3,7 +3,7 @@ jQuery.fn.jform = function (args) {
     // return json string
     if (typeof (args) === 'undefined') {
       var dataSet = {};
-  
+
       // make data set object
       $.each($(this).serializeArray(), function () {
         if (this.name.match(/^.+\[\]$/)) {
@@ -22,7 +22,7 @@ jQuery.fn.jform = function (args) {
           dataSet[this.name] = [dataSet[this.name], this.value];
         }
       });
-  
+
       // hidden
       $(this).find('input[type="hidden"]').each(function () {
         // don't replace current value
@@ -127,19 +127,20 @@ jQuery.fn.jform = function (args) {
             break;
           case 'checkbox':
             obj.each(function () {
+              var eleCheckbox = $(this);
               if (typeof (value) === 'string' || typeof (value) === 'number') {
                 // single
-                if ($(this).val().toString() === value.toString()) {
-                  $(this).prop('checked', true);
+                if (eleCheckbox.val().toString() === value.toString()) {
+                    eleCheckbox.prop('checked', true);
                 } else {
-                  $(this).prop('checked', false);
+                    eleCheckbox.prop('checked', false);
                 }
               } else if (typeof (value) === 'object') {
                 // multiple
-                $(this).prop('checked', false);
+                eleCheckbox.prop('checked', false);
                 for (var i in value) {
-                  if ($(this).val().toString() === value[i].toString()) {
-                    $(this).prop('checked', true);
+                  if (eleCheckbox.val().toString() === value[i].toString()) {
+                    eleCheckbox.prop('checked', true);
                   }
                 }
               }
@@ -147,23 +148,25 @@ jQuery.fn.jform = function (args) {
             break;
           case 'select-multiple':
             obj.find('option').each(function () {
-              $(this).prop('selected', false);
+              var eleOption = $(this);
+              eleOption.prop('selected', false);
               if (typeof (value) === 'object') {
                 // multiple
                 for (var i in value) {
-                  if ($(this).val().toString() === value[i].toString() || $(this).text() === value[i].toString()) {
-                    $(this).prop('selected', true);
+                  if (eleOption.val().toString() === value[i].toString() || eleOption.text() === value[i].toString()) {
+                    eleOption.prop('selected', true);
                   }
                 }
-              } else if ($(this).val().toString() === value.toString()) {
-                $(this).prop('selected', true);
+              } else if (eleOption.val().toString() === value.toString()) {
+                eleOption.prop('selected', true);
               }
             });
             break;
           case 'radio':
             obj.each(function () {
-              if ($(this).val().toString() === value.toString()) {
-                $(this).prop('checked', true);
+              var eleRadio = $(this);
+              if (eleRadio.val().toString() === value.toString()) {
+                eleRadio.prop('checked', true);
               }
             });
             break;
